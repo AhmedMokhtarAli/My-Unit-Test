@@ -33,14 +33,14 @@ class ValidatePhoneUseCaseTest {
 
     @Test
     fun given_invalid_phone_input_type_when_validate_then_return_invalid_phone_pattern_exception() {
-        val phoneNumber = "123s"
+        val phoneNumber = "123456789s"
         val result = validatePhoneUseCase.invoke(phoneNumber)
         assertFalse(result.isSuccess)
         assertTrue(result.exception is ValidationException.InvalidPhoneInputTypeException)
     }
 
     @Test
-    fun given_a_valid_phone_when_validate_then_return_passed() {
+    fun given_a_valid_phone_when_validate_then_passed() {
         val phoneNumber = "1231233699"
         val result = validatePhoneUseCase.invoke(phoneNumber)
         assertTrue(result.isSuccess)
